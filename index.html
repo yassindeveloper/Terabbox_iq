@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terabox Video Downloader</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Terabox Video Downloader</h1>
+            <p class="lang-en">Paste your public Terabox link to get a direct download link.</p>
+            <p class="lang-ar" dir="rtl">الصق رابط Terabox العام للحصول على رابط تنزيل مباشر.</p>
+        </header>
+        <main>
+            <form id="download-form">
+                <label for="terabox-url" class="lang-en">Enter your Terabox link</label>
+                <label for="terabox-url" class="lang-ar" dir="rtl">أدخل رابط Terabox الخاص بك</label>
+                <input type="url" id="terabox-url" placeholder="https://teraboxlink.com/s/..." required>
+                <button type="submit" class="lang-en">Download Now</button>
+                <button type="submit" class="lang-ar" dir="rtl">حمل الان</button>
+            </form>
+            <div id="loader" class="hidden"></div>
+            <div id="download-link-container" class="hidden">
+                <a href="#" id="download-link" class="download-button" target="_blank">
+                    <span class="lang-en">Open Download Link</span>
+                    <span class="lang-ar" dir="rtl">افتح رابط التنزيل</span>
+                </a>
+            </div>
+        </main>
+        <footer>
+            <!-- 
+                Backend Expansion Note:
+                To implement a server-side solution, you could send the Terabox link 
+                to a backend endpoint (e.g., in Node.js or PHP).
+
+                Example Node.js (with Express and Puppeteer):
+                app.get('/getLink', async (req, res) => {
+                    const userLink = req.query.link;
+                    // Use Puppeteer to launch a headless browser
+                    // Navigate to the userLink
+                    // Extract the direct video source URL from the page's HTML or embedded scripts
+                    // Return the direct link as JSON
+                });
+
+                Example PHP (with cURL):
+                <?php
+                if (isset($_GET['link'])) {
+                    $userLink = $_GET['link'];
+                    // Use cURL to fetch the HTML content of the $userLink
+                    // Use DOM parsing (e.g., DOMDocument) to find the video source URL
+                    // Echo the direct link
+                }
+                ?>
+            -->
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
